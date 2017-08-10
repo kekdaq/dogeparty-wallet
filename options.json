@@ -1,19 +1,22 @@
 {
   "open": "{{",
   "close": "}}",
-  "name": "Dogeparty Wallet",
-  "xcp": "XDP",
-  "xcp_name": "Dogeparty",
-  "btc": "DOGE",
-  "btc_name": "Dogecoin",
+  "name": "Kekdaq Wallet",
+  "xcp": "KDAQ",
+  "xcp_name": "Kekdaq",
+  "btc": "PEPE",
+  "btc_name": "PepeCoin",
   "xcp_store_url": "",
-  "max_burn_per_address": 5000000,
-  "homepage": "http://dogeparty.io",
+  "max_burn_per_address": 1000000,
+  "homepage": "https://www.kekdaq.com",
   "livenet": {
-    "burning": false
+    "burning": {
+      "start": 668000,
+      "end": 927200
+   }
   },
   "testnet": {
-    "url": "http://testnet.wallet.dogeparty.io/",
+    "url": "http://testnet.www.kekdaq.com/",
     "faucet_url": "",
     "burning": {
       "start": 124678,

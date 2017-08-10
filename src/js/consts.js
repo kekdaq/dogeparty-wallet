@@ -172,10 +172,10 @@ var BET_MATCHES_STATUS = {
 
 var LEVERAGE_UNIT = 5040;
 
-var MAINNET_UNSPENDABLE = 'DDogepartyxxxxxxxxxxxxxxxxxxw1dfzr';
-var TESTNET_UNSPENDABLE = 'ndogepartyxxxxxxxxxxxxxxxxxxwpsZCH';
-var MAINNET_DONATION = 'DLtFm7fnuVFHRWcUTsikccLnTyduWntHdF';
-var TESTNET_DONATION = 'xnV9kfQFxzPvSYoSuZVqRJduLxdhyziFKiZ';
+var MAINNET_UNSPENDABLE = 'PKekDaqXXXXXXXXXXXXXXXXXXXXXWH8yfH';
+var TESTNET_UNSPENDABLE = 'mvKekDaqXXXXXXXXXXXXXXXXXXXXaupTK1';
+var MAINNET_DONATION = 'PKekDaqXXXXXXXXXXXXXXXXXXXXXWH8yfH';
+var TESTNET_DONATION = 'mvKekDaqXXXXXXXXXXXXXXXXXXXXaupTK1';
 
 /***********
  * IS_DEV / USE_TESTNET
@@ -195,7 +195,7 @@ var USE_TESTNET = (   (((location.pathname == "/" || location.pathname == "/src/
                    || location.hostname.indexOf('testnet') != -1) ? true : false
                   );
 
-var BURN_START, BURN_END, BURN_MULTIPLIER = 0.001;
+var BURN_START, BURN_END, BURN_MULTIPLIER = 50;
 if (USE_TESTNET) {
   if (typeof TESTNET_BURN_START !== "undefined") {
     BURN_START = TESTNET_BURN_START;
