@@ -91,7 +91,7 @@ function getLinkForCPData(type, dataID, dataTitle, htmlize) {
   if(typeof(type)==='undefined') type = 'tx';
   var url = null;
   if(type == 'address') { //dataID is an address
-    url = "http://dogepartychain.info/address/" + dataID;
+    url = "http://pepe.cryptocloudhosting.org:3001/address/" + dataID;
   } else if(type == 'order') { //txID is an order ID
     url = "http://blockscan.com/order.aspx?q=" + dataID;
   } else if(type == 'tx') { //generic TX
