@@ -38,8 +38,8 @@
     <!-- endbuild -->
 
     <!-- FAVICONS -->
-    <link rel="shortcut icon" href="images/favicon.ico">
-    <link rel="icon" href="images/favicon.ico">
+    <link rel="shortcut icon" href="images/favicon.gif">
+    <link rel="icon" href="images/favicon.gif">
 
     <!-- GOOGLE FONT -->
     <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,300,400,700">
@@ -128,10 +128,6 @@
         
         <span id="noticeDevMode" data-bind="visible: IS_DEV" class="label label-warning pull-right modeIndicator"><i class="fa-fw fa fa-warning"></i>&nbsp;Dev Mode Enabled</span>
        
-        <span id="donate" class="pull-right">
-          <a href="#" class="btn btn-primary">DONATE</a>
-        </span>
-
       </div> <!-- end pulled right: nav area -->
     </header> <!-- END HEADER -->
 
@@ -203,7 +199,7 @@
 
     <!-- Logged out cover div -->
     <div id="logon" class="dogeparty">
-      <img src="images/dogeparty@2x.png" alt="Dogeparty" class="dp-logo" />
+      <img src="assets/kekdaqlogo3landing.png" alt="Kekdaq" class="dp-logo" />
       <h1>Welcome to {{= name}}<span data-bind="visible: USE_TESTNET">&nbsp;Testnet</span></h1>
       <h2>Powered by Counterparty</h2>
       <div id="form-well" class="form-well">
@@ -234,16 +230,7 @@
               <p>To log into your wallet, input your passphase in the wallet login textbox below, and press the <b>Open Wallet</b> button.</p>
             </div>
           </div>
-        </div>
-
-        <div data-bind="visible: !USE_TESTNET" class="testnet-note">
-          <p>
-            <span>New to {{= name}}, <span class="nowrap">and want to just play around?</span></span>
-            <br />
-            <b><a href="{{= testnet.url}}" target="_blank">Try {{= name}} Testnet!</a></b>
-           </p>
-         </div>
-
+        </div>     
         <div class="panel panel-info">
           <div class="panel-heading">
             <h3 class="panel-title">

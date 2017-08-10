@@ -100,7 +100,7 @@ p.logonWarningOtherLines {
 }
 
 .dogeparty {
-  background: #42b5d5 !important;
+  background: #012001 !important;
   color: white;
   font-family: "Open Sans", Arial, Helvetica, Sans-Serif;
 }
@@ -187,8 +187,8 @@ p.logonWarningOtherLines {
 }
 
 .dogeparty .panel-body {
-  background: #40aecd;
-  border: 1px solid #38a0bd;
+  background: #002000;
+  border: 1px solid #034002;
   border-radius: 12px;
   padding: 30px;
 }
@@ -213,7 +213,7 @@ p.logonWarningOtherLines {
 
 .dogeparty .btn-open,
 .dogeparty .btn-regenerate {
-  background: #2f99b6 !important;
+  background: #ECE843 !important;
   border: 0;
   box-shadow: none !important;
   color: white;
@@ -301,7 +301,7 @@ p.logonWarningOtherLines {
 }
 
 .dogeparty .down-arrow-circle {
-  background: #42b5d5;
+  background: #012001;
   border-radius: 50%;
   height: 50px;
   margin: 0 auto;
