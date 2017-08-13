@@ -37,7 +37,7 @@ var MARKET_INFO_REFRESH_EVERY = 5 * 60 * 1000; //refresh market info every 5 min
 
 var CHAT_NUM_USERS_ONLINE_REFRESH_EVERY = 5 * 60 * 1000; //refresh online user count every 5 minutes while enabled
 
-var NUM_BLOCKS_TO_WAIT_FOR_BTCPAY = 6; //number of blocks to wait until the user can make a BTCpay on an order match where they owe BTC
+var NUM_BLOCKS_TO_WAIT_FOR_BTCPAY = 20; //number of blocks to wait until the user can make a BTCpay on an order match where they owe BTC
 
 var ALLOW_UNCONFIRMED_INPUTS = true;  // allow use unconfirmed unspents
 
@@ -227,12 +227,12 @@ var BLOCKEXPLORER_URL = USE_TESTNET ? "http://pepe.cryptocloudhosting.org:3001" 
 var GOOGLE_ANALYTICS_UAID = null; //will be set in counterwallet.js
 var ROLLBAR_ACCESS_TOKEN = null; //will be set in counterwallet.js
 
-var TRANSACTION_DELAY = 5000 // delay between transaction to avoid error -22 (vin reused)
+var TRANSACTION_DELAY = 60000 // delay between transaction to avoid error -22 (vin reused)
 var TRANSACTION_MAX_RETRY = 5 // max retry when transaction failed (don't include first transaction, so 3 retry means 4 queries)
 
 var DONATION_ADDRESS = USE_TESTNET ? TESTNET_DONATION : MAINNET_DONATION;
 
-var APPROX_SECONDS_PER_BLOCK = USE_TESTNET ? 20 * 60 : 8 * 60; //a *rough* estimate on how many seconds per each block (used for estimating open order time left until expiration, etc)
+var APPROX_SECONDS_PER_BLOCK = USE_TESTNET ? 1 * 60 : 1 * 60; //a *rough* estimate on how many seconds per each block (used for estimating open order time left until expiration, etc)
 
 var USER_COUNTRY = ''; //set in login.js
 var CURRENT_PAGE_URL = ''; // set in loadUrl()
@@ -242,11 +242,11 @@ var DISABLED_FEATURES = []; //set in counterwallet.js
 
 // restricted action
 var RESTRICTED_AREA = {
-  'pages/betting.html': ['US'],
-  'pages/openbets.html': ['US'],
-  'pages/matchedbets.html': ['US'],
-  'pages/rps.html': ['US'],
-  'dividend': ['US']
+//  'pages/betting.html': ['US'],
+//  'pages/openbets.html': ['US'],
+//  'pages/matchedbets.html': ['US'],
+//  'pages/rps.html': ['US'],
+//  'dividend': ['US']
 }
 
 var MAX_SUPPORT_CASE_PROBLEM_LEN = 4096;
