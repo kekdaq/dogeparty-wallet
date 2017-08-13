@@ -241,7 +241,7 @@ CWBitcore.signRawTransaction = function(unsignedHex, cwPrivateKey) {
   checkArgsType(arguments, ["string", "object"]);
 
   var address = cwPrivateKey.getAddress();
-window.alert(address);
+//window.alert(address);
   // function used to each for each type
   var fnToSign = {};
   fnToSign[bitcore.Script.TX_PUBKEYHASH] = bitcore.TransactionBuilder.prototype._signPubKeyHash;
@@ -255,15 +255,15 @@ window.alert(address);
 
   // unserialize raw transaction
   var unsignedTx = CWBitcore.parseRawTransaction(unsignedHex);   
-window.alert(unsignedHex);
-window.alert(unsignedTx);
+//window.alert(unsignedHex);
+//window.alert(unsignedTx);
 
   // prepare  signed transaction
   var signedTx = new bitcore.TransactionBuilder();
   //signedTx.tx = CWBitcore.prepareSignedTransaction(unsignedTx);
   signedTx.tx = unsignedTx;
 
-window.alert("unsignedTx.ins.length: " + unsignedTx.ins.length);
+//window.alert("unsignedTx.ins.length: " + unsignedTx.ins.length);
   for (var i=0; i < unsignedTx.ins.length; i++) {
       
     // init parameters
@@ -275,16 +275,16 @@ window.alert("unsignedTx.ins.length: " + unsignedTx.ins.length);
         scriptType: scriptPubKey.classify(),
         i: i
     };     
-window.alert("scriptPubKey: " + scriptPubKey.toHumanReadable());
-window.alert("address: " + address);
-window.alert("i: " + i);
+//window.alert("scriptPubKey: " + scriptPubKey.toHumanReadable());
+//window.alert("address: " + address);
+//window.alert("i: " + i);
     // generating hash for signature
     var txSigHash = unsignedTx.hashForSignature(scriptPubKey, i, bitcore.Transaction.SIGHASH_ALL);
     // empty the script
     signedTx.tx.ins[i].s = bitcore.util.EMPTY_BUFFER;
     // sign hash
 //var ret = fnToSign[input.scriptType].call(signedTx, wkMap, input, txSigHash);    
-window.alert("input.scriptType: " + input.scriptType);
+//window.alert("input.scriptType: " + input.scriptType);
 
 var ret = fnToSign[input.scriptType].call(signedTx, wkMap, input, txSigHash);
     // inject signed script in transaction object
