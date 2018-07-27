@@ -191,11 +191,12 @@ function qs(key) {
 // IS_DEV is enabled if the initial (root) URL access has ?dev=1
 // USE_TESTNET is enabled if the initial (root) URL access has ?testnet=1, OR the hostname visited starts with 'testnet' (e.g. testnet.myhost.com)
 var IS_DEV = (location.pathname == "/" && qs("dev") && qs("dev") != '0' ? true : false);
-var USE_TESTNET = (   (((location.pathname == "/" || location.pathname == "/src/" || location.pathname == "/build/") && qs("testnet") && qs("testnet") != '0')
-                   || location.hostname.indexOf('testnet') != -1) ? true : false
-                  );
+var USE_TESTNET = false; //(   (((location.pathname == "/" || location.pathname == "/src/" || location.pathname == "/build/") && qs("testnet") && qs("testnet") != '0')
+               //    || location.hostname.indexOf('testnet') != -1) ? true : false
+              //    );
 
 var BURN_START, BURN_END, BURN_MULTIPLIER = 50;
+var BURN_SECOND_START, BURN_SECOND_END, BURN_SECOND_MULTIPLIER = 10;
 if (USE_TESTNET) {
   if (typeof TESTNET_BURN_START !== "undefined") {
     BURN_START = TESTNET_BURN_START;
@@ -205,6 +206,8 @@ if (USE_TESTNET) {
   if (typeof LIVENET_BURN_START !== "undefined") {
     BURN_START = LIVENET_BURN_START;
     BURN_END = LIVENET_BURN_END;
+    BURN_SECOND_START = LIVENET_BURN_SECOND_START;
+    BURN_SECOND_END = LIVENET_BURN_SECOND_END;
   }
 }
 var BURNABLE = !!BURN_START;
@@ -227,7 +230,7 @@ var BLOCKEXPLORER_URL = USE_TESTNET ? "http://pepe.cryptocloudhosting.org:3001" 
 var GOOGLE_ANALYTICS_UAID = null; //will be set in counterwallet.js
 var ROLLBAR_ACCESS_TOKEN = null; //will be set in counterwallet.js
 
-var TRANSACTION_DELAY = 60000 // delay between transaction to avoid error -22 (vin reused)
+var TRANSACTION_DELAY = 90000 // delay between transaction to avoid error -22 (vin reused)
 var TRANSACTION_MAX_RETRY = 5 // max retry when transaction failed (don't include first transaction, so 3 retry means 4 queries)
 
 var DONATION_ADDRESS = USE_TESTNET ? TESTNET_DONATION : MAINNET_DONATION;
