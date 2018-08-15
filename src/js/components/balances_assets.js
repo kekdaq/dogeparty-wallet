@@ -849,12 +849,12 @@ function ShowAssetInfoModalViewModel() {
           return; //asset has no extended info
         }
         
-        if(ext_info['image'])
+        if(ext_info.info_data.image)
           self.extImageURL((USE_TESTNET ? '/_t_asset_img/' : '/_asset_img/') + assetObj.ASSET + '.png');
         
-        self.extWebsite(ext_info['info_data']['website']);
-        self.extDescription(ext_info['info_data']['description']);
-        self.extPGPSigURL(ext_info['info_data']['pgpsig']);
+        self.extWebsite(ext_info.info_data.website);
+        self.extDescription(ext_info.info_data.description);
+        self.extPGPSigURL(ext_info.info_data.pgpsig);
       }
     );   
     
