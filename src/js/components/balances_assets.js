@@ -841,6 +841,8 @@ function ShowAssetInfoModalViewModel() {
     //Fetch the asset history and populate the table with it
     failoverAPI("get_asset_extended_info", {'asset': assetObj.ASSET},
       function(ext_info, endpoint) {
+        console.log(ext_info);
+        alert(ext_info);
         if(!ext_info)
         {
           console.log("No extended info returned for asset: " + assetObj.ASSET);
