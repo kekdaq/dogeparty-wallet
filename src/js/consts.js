@@ -1,7 +1,7 @@
 /***********
  * GLOBAL CONSTANTS
  ***********/
-var VERSION = "1.5.0PRE BETA";
+var VERSION = "1.6.0 BETA";
 
 var IS_MOBILE_OR_TABLET = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
 var PREFERENCES = {}; //set when logging in
@@ -23,11 +23,11 @@ var DEFAULT_NUM_ADDRESSES = 1; //default number of addresses to generate. Go wit
 var MAX_ADDRESSES = 20; //totall arbitrary :)
 
 //Order expiration
-var ORDER_DEFAULT_EXPIRATION = 1000; //num blocks until expiration (at ~9 min per block this is ~6.75 days)
-var ORDER_BTCSELL_DEFAULT_EXPIRATION = 2000; //num blocks until expiration for selling BTC order
-var ORDER_MAX_EXPIRATION = 3000; //max expiration for order
+var ORDER_DEFAULT_EXPIRATION = 40320; //num blocks until expiration (at ~9 min per block this is ~6.75 days)
+var ORDER_BTCSELL_DEFAULT_EXPIRATION = 40320; //num blocks until expiration for selling BTC order
+var ORDER_MAX_EXPIRATION = 80640; //max expiration for order
 
-var STATS_MAX_NUM_TRANSACTIONS = 100; //max # transactions to show in the table
+var STATS_MAX_NUM_TRANSACTIONS = 1000; //max # transactions to show in the table
 var VIEW_PRICES_NUM_ASSET_PAIRS = 50; //show market info for this many pairs
 var VIEW_PRICES_ASSET_PAIRS_REFRESH_EVERY = 5 * 60 * 1000; //refresh asset pair market info every 5 minutes
 var VIEW_PRICES_NUM_LATEST_TRADES = 50; //show this many latest trades on the view prices page
@@ -35,11 +35,11 @@ var VIEW_PRICES_LATEST_TRADES_REFRESH_EVERY = 5 * 60 * 1000; //refresh latest tr
 
 var MARKET_INFO_REFRESH_EVERY = 5 * 60 * 1000; //refresh market info every 5 minutes while enabled (on buy/sell page, and view prices page) 
 
-var CHAT_NUM_USERS_ONLINE_REFRESH_EVERY = 5 * 60 * 1000; //refresh online user count every 5 minutes while enabled
+var CHAT_NUM_USERS_ONLINE_REFRESH_EVERY = 1 * 60 * 1000; //refresh online user count every 5 minutes while enabled
 
-var NUM_BLOCKS_TO_WAIT_FOR_BTCPAY = 20; //number of blocks to wait until the user can make a BTCpay on an order match where they owe BTC
+var NUM_BLOCKS_TO_WAIT_FOR_BTCPAY = 10; //number of blocks to wait until the user can make a BTCpay on an order match where they owe BTC
 
-var ALLOW_UNCONFIRMED_INPUTS = true;  // allow use unconfirmed unspents
+var ALLOW_UNCONFIRMED_INPUTS = false;  // allow use unconfirmed unspents
 
 var B26_DIGITS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
 
@@ -191,11 +191,12 @@ function qs(key) {
 // IS_DEV is enabled if the initial (root) URL access has ?dev=1
 // USE_TESTNET is enabled if the initial (root) URL access has ?testnet=1, OR the hostname visited starts with 'testnet' (e.g. testnet.myhost.com)
 var IS_DEV = (location.pathname == "/" && qs("dev") && qs("dev") != '0' ? true : false);
-var USE_TESTNET = (   (((location.pathname == "/" || location.pathname == "/src/" || location.pathname == "/build/") && qs("testnet") && qs("testnet") != '0')
-                   || location.hostname.indexOf('testnet') != -1) ? true : false
-                  );
+var USE_TESTNET = false; //(   (((location.pathname == "/" || location.pathname == "/src/" || location.pathname == "/build/") && qs("testnet") && qs("testnet") != '0')
+               //    || location.hostname.indexOf('testnet') != -1) ? true : false
+              //    );
 
 var BURN_START, BURN_END, BURN_MULTIPLIER = 50;
+var BURN_SECOND_START, BURN_SECOND_END, BURN_SECOND_MULTIPLIER = 10;
 if (USE_TESTNET) {
   if (typeof TESTNET_BURN_START !== "undefined") {
     BURN_START = TESTNET_BURN_START;
@@ -205,6 +206,8 @@ if (USE_TESTNET) {
   if (typeof LIVENET_BURN_START !== "undefined") {
     BURN_START = LIVENET_BURN_START;
     BURN_END = LIVENET_BURN_END;
+    BURN_SECOND_START = 1489487;
+    BURN_SECOND_END = 1750000;
   }
 }
 var BURNABLE = !!BURN_START;
@@ -223,11 +226,11 @@ location.hash = '';
 var ORIG_REFERER = document.referrer;
 
 //CONSTANTS THAT DEPEND ON IS_DEV / USE_TESTNET
-var BLOCKEXPLORER_URL = USE_TESTNET ? "http://pepe.cryptocloudhosting.org:3001" : "http://pepe.cryptocloudhosting.org:3001";
+var BLOCKEXPLORER_URL = USE_TESTNET ? "http://explorer.memetic.ai" : "http://explorer.memetic.ai";
 var GOOGLE_ANALYTICS_UAID = null; //will be set in counterwallet.js
 var ROLLBAR_ACCESS_TOKEN = null; //will be set in counterwallet.js
 
-var TRANSACTION_DELAY = 60000 // delay between transaction to avoid error -22 (vin reused)
+var TRANSACTION_DELAY = 90000 // delay between transaction to avoid error -22 (vin reused)
 var TRANSACTION_MAX_RETRY = 5 // max retry when transaction failed (don't include first transaction, so 3 retry means 4 queries)
 
 var DONATION_ADDRESS = USE_TESTNET ? TESTNET_DONATION : MAINNET_DONATION;

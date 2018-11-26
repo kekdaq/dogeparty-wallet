@@ -811,6 +811,7 @@ function ShowAssetInfoModalViewModel() {
   self.callPrice = ko.observable(null);
   self.history = ko.observableArray([]);
   
+  self.ext_info = ko.observableArray([]);
   self.extImageURL = ko.observable(null);
   self.extWebsite = ko.observable(null);
   self.extDescription = ko.observable(null);
@@ -840,15 +841,20 @@ function ShowAssetInfoModalViewModel() {
     //Fetch the asset history and populate the table with it
     failoverAPI("get_asset_extended_info", {'asset': assetObj.ASSET},
       function(ext_info, endpoint) {
+        console.log(ext_info);        
         if(!ext_info)
+        {
+          console.log("No extended info returned for asset: " + assetObj.ASSET);
+          console.log(ext_info);
           return; //asset has no extended info
+        }
         
-        if(ext_info['image'])
+        if(ext_info.info_data.image)
           self.extImageURL((USE_TESTNET ? '/_t_asset_img/' : '/_asset_img/') + assetObj.ASSET + '.png');
         
-        self.extWebsite(ext_info['website']);
-        self.extDescription(ext_info['description']);
-        self.extPGPSigURL(ext_info['pgpsig']);
+        self.extWebsite(ext_info.info_data.website);
+        self.extDescription(ext_info.info_data.description);
+        self.extPGPSigURL(ext_info.info_data.pgpsig);
       }
     );   
     

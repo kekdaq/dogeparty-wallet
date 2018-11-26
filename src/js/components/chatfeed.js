@@ -229,6 +229,10 @@ function ChatFeedViewModel() {
       if(num != self._firstAvailableChatServer) return; //prevent multiple repeated actions
       self.addLine(null, handle + (is_online ? " is online" : " is not online"), null, null);
     });
+    socket.on('who_online', function(handle) {
+      if(num != self._firstAvailableChatServer) return; //prevent multiple repeated actions
+      self.addLine(null, handle + " is online", null, null);
+    });
     socket.on('error', function (error_name, error_message) {
       $.jqlog.debug("chat.error(feed-"+num+"): " + error_name + " -- " + error_message);
       
