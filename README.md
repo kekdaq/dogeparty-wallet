@@ -1,7 +1,7 @@
-Counterwallet
+kekdaq-wallet fork of Counterwallet
 ================
 
-Online Webwallet for [Counterparty](http://www.counterparty.co).
+Online Webwallet for [Kekdaq](http://www.kekdaq.com).
 
 Originally based off of [Carbonwallet](http://www.carbonwallet.com) (however virtually all the original code has been removed or rewritten).
 
@@ -9,8 +9,8 @@ Originally based off of [Carbonwallet](http://www.carbonwallet.com) (however vir
 Production Systems
 -------------------
 
-* Mainnet: **[counterwallet.co](https://www.counterwallet.co/)**
-* Testnet: **[testnet.counterwallet.co](https://testnet.counterwallet.co/)**
+* Mainnet: **[http://kekdaq.com](http://kekdaq.com).**
+* Testnet: **[http://test.kekdaq.com](http://test.kekdaq.com).**
 
 
 Features
@@ -20,7 +20,7 @@ Features
 - Supports the majority of Counterparty functionality
 - Fully-AJAX driven
 - Anonymous
-- Runs in the browser, with keys created in memory
+- Runs in the browser, with keys created in user's local memory
 
 
 Browser Support
@@ -47,6 +47,8 @@ Notably, Internet Explorer is **not** supported, due to its lack of full Content
 Build Instructions
 -------------------
 
+Requires Node 0.10.28, recommend using [Node Version Manager](https://github.com/creationix/nvm)
+
 ### Before running the build system:
 ```
 sudo npm install -g grunt-cli bower
@@ -68,13 +70,12 @@ grunt build
 grunt freeze
 ```
 
-Setting up your own Counterwallet Server
+Setting up your own Kekdaq Server
 -----------------------------------------
 
-See [this link](https://github.com/CounterpartyXCP/counterpartyd_build/blob/master/docs/SettingUpAFederatedNode.rst) for more info.
+Documentation currently being compiled
 
-
-Licence
+License
 -------------------
 
 http://opensource.org/licenses/CDDL-1.0
