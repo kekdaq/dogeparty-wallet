@@ -1,3 +1,6 @@
+###  kdaq WIP ###
+* Removed all betting and dividend features
+
 ### v1.4.0 (Unreleased) ###
 **Enhancements:**
 * Added new DEx interface
@@ -15,6 +18,7 @@
 * Added Zeroconf support (show pending balances for assets)
 * Added IP-based blocking for betting, RPS and dividend issuance. We are currently blocking people
   with US-based IP addresses from using these features on counterwallet.co itself.
+  // PEPE/MEME note, these features have all been removed to avoid issues.
 
 **Fixes:**
 * Fixed issue with asset name validation (length checking was incorrect)
