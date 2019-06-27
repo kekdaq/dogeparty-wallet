@@ -23,9 +23,9 @@ var DEFAULT_NUM_ADDRESSES = 1; //default number of addresses to generate. Go wit
 var MAX_ADDRESSES = 20; //totall arbitrary :)
 
 //Order expiration
-var ORDER_DEFAULT_EXPIRATION = 40320; //num blocks until expiration (at ~9 min per block this is ~6.75 days)
-var ORDER_BTCSELL_DEFAULT_EXPIRATION = 40320; //num blocks until expiration for selling BTC order
-var ORDER_MAX_EXPIRATION = 80640; //max expiration for order
+var ORDER_DEFAULT_EXPIRATION = 4032; //num blocks until expiration (at ~9 min per block this is ~6.75 days)
+var ORDER_BTCSELL_DEFAULT_EXPIRATION = 4032; //num blocks until expiration for selling BTC order
+var ORDER_MAX_EXPIRATION = 8064; //max expiration for order
 
 var STATS_MAX_NUM_TRANSACTIONS = 1000; //max # transactions to show in the table
 var VIEW_PRICES_NUM_ASSET_PAIRS = 50; //show market info for this many pairs
