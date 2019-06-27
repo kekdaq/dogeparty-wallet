@@ -102,7 +102,7 @@ function PendingActionFeedViewModel() {
   self.entries = ko.observableArray([]); //pending actions beyond pending BTCpays
   self.lastUpdated = ko.observable(new Date());
   self.ALLOWED_CATEGORIES = [
-    'sends', 'orders', 'issuances', 'broadcasts', 'dividends', 'burns', 'cancels', 'callbacks', 'btcpays', 'rps', 'rpsresolves', 'order_matches'
+    'sends', 'orders', 'issuances', 'broadcasts', 'dividends', 'burns', 'cancels', 'callbacks', 'btcpays', 'order_matches'
     //^ pending actions are only allowed for these categories
   ];
   
@@ -117,13 +117,6 @@ function PendingActionFeedViewModel() {
     }).length;
   }, self);
 
-  self.pendingRPS = ko.computed(function() {
-    return $.map(self.entries(), function(item) { 
-        var game = 'rps' == item.CATEGORY;
-        return game ? item : null;
-    }).length;
-  }, self);
-  
   self.getLocalStorageKey = function() {
     return 'pendingActions_' + WALLET.identifier();
   }

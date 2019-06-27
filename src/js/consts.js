@@ -67,20 +67,11 @@ var ENTITY_NAMES = {
   'btcpays': 'BTCPay',
   'issuances': 'Issuance',
   'broadcasts': 'Broadcast',
-  'bets': 'Bet',
-  'bet_matches': 'Bet Match',
   'dividends': 'Distribution',
   'cancels': 'Cancel',
   'callbacks': 'Callback',
-  'bet_expirations': 'Bet Expired',
   'order_expirations': 'Order Expired',
-  'bet_match_expirations': 'Bet Match Exp',
   'order_match_expirations': 'Order Match Exp',
-  'rps': 'Rock-Paper-Scissors',
-  'rps_matches': 'RPS Match',
-  'rpsresolves': 'RPS Confirmed',
-  'rps_expirations': 'RPS Expired',
-  'rps_match_expirations': 'RPS Match Expired'
 };
 
 var ENTITY_ICONS = {
@@ -93,20 +84,11 @@ var ENTITY_ICONS = {
   'btcpays': 'fa-btc',
   'issuances': 'fa-magic',
   'broadcasts': 'fa-rss',
-  'bets': 'fa-bullseye',
-  'bet_matches': 'fa-exchange',
   'dividends': 'fa-ticket',
   'cancels': 'fa-times',
   'callbacks': 'fa-retweet',
-  'bet_expirations': 'fa-clock-o',
   'order_expirations': 'fa-clock-o',
-  'bet_match_expirations': 'fa-clock-o',
   'order_match_expirations': 'fa-clock-o',
-  'rps': 'fa-trophy',
-  'rps_matches': 'fa-trophy',
-  'rpsresolves': 'fa-trophy',
-  'rps_expirations': 'fa-trophy',
-  'rps_match_expirations': 'fa-trophy'
 };
 
 var ENTITY_NOTO_COLORS = {
@@ -119,58 +101,12 @@ var ENTITY_NOTO_COLORS = {
   'btcpays': 'bg-color-orange',
   'issuances': 'bg-color-pinkDark',
   'broadcasts': 'bg-color-magenta',
-  'bets': 'bg-color-teal',
-  'bet_matches': 'bg-color-teal',
   'dividends': 'bg-color-pink',
   'cancels': 'bg-color-red',
   'callbacks': 'bg-color-pink',
-  'bet_expirations': 'bg-color-grayDark',
   'order_expirations': 'bg-color-grayDark',
-  'bet_match_expirations': 'bg-color-grayDark',
   'order_match_expirations': 'bg-color-grayDark',
-  'rps': 'bg-color-blue',
-  'rps_matches': 'bg-color-blueLight',
-  'rpsresolves': 'bg-color-blue',
-  'rps_expirations': 'bg-color-blueLight',
-  'rps_match_expirations': 'bg-color-blueLight'
 };
-
-var BET_TYPES = {
-  0: "Bullish CFD",
-  1: "Bearish CFD",
-  2: "Equal",
-  3: "Not Equal"
-};
-
-var BET_TYPES_SHORT = {
-  0: "BullCFD",
-  1: "BearCFD",
-  2: "Equal",
-  3: "NotEqual"
-}
-
-var BET_TYPES_ID = {
-  "BullCFD": 0,
-  "BearCFD": 1,
-  "Equal": 2,
-  "NotEqual": 3
-}
-
-var COUNTER_BET = {
-  "Equal": 3,
-  "NotEqual": 2,
-  "BullCFD": 1,
-  "BearCFD": 0
-}
-
-var BET_MATCHES_STATUS = {
-  "settled: liquidated for bear": 0,
-  "settled: liquidated for bull": 1,
-  "settled: for equal": 2,
-  "settled: for notequal": 3
-}
-
-var LEVERAGE_UNIT = 5040;
 
 var MAINNET_UNSPENDABLE = 'PKekDaqXXXXXXXXXXXXXXXXXXXXXWH8yfH';
 var TESTNET_UNSPENDABLE = 'mvKekDaqXXXXXXXXXXXXXXXXXXXXaupTK1';
@@ -240,11 +176,12 @@ var APPROX_SECONDS_PER_BLOCK = USE_TESTNET ? 1 * 60 : 1 * 60; //a *rough* estima
 var USER_COUNTRY = ''; //set in login.js
 var CURRENT_PAGE_URL = ''; // set in loadUrl()
 
-var DISABLED_FEATURES_SUPPORTED = ['betting', 'rps', 'dividend', 'exchange', 'leaderboard', 'portfolio', 'stats', 'history']; //what can be disabled
+var DISABLED_FEATURES_SUPPORTED = ['dividend', 'exchange', 'leaderboard', 'portfolio', 'stats', 'history']; //what can be disabled
 var DISABLED_FEATURES = []; //set in counterwallet.js
 
 // restricted action
 var RESTRICTED_AREA = {
+//  these are all completely removed from the code in Kekdaq
 //  'pages/betting.html': ['US'],
 //  'pages/openbets.html': ['US'],
 //  'pages/matchedbets.html': ['US'],

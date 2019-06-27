@@ -1,5 +1,7 @@
 ###  kdaq WIP ###
-* Removed all betting and dividend features
+* Removed all betting features
+* Removed all "rock paper scissors betting features
+
 
 ### v1.4.0 (Unreleased) ###
 **Enhancements:**

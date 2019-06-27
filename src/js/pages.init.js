@@ -128,7 +128,6 @@ function initBalances() {
   if(!isBound("left-panel")) {
     ko.applyBindings({
       FEATURE_EXCHANGE: disabledFeatures.indexOf('exchange') == -1,
-      FEATURE_RPS: disabledFeatures.indexOf('rps') == -1,
       FEATURE_HISTORY: disabledFeatures.indexOf('history') == -1,
       FEATURE_PORTFOLIO: disabledFeatures.indexOf('portfolio') == -1,
       FEATURE_LEADERBOARD: disabledFeatures.indexOf('leaderboard') == -1,
@@ -375,11 +374,4 @@ function initOrderMatches() {
 }
 INIT_FUNC['pages/ordermatches.html'] = initOrderMatches;
 
-function initRPS() {
-  pageSetUp();
-  window.RPS = new RpsViewModel();
-  ko.applyBindings(RPS, document.getElementById("rps"));
 
-  RPS.init();
-}
-INIT_FUNC['pages/rps.html'] = initRPS;
