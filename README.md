@@ -38,7 +38,7 @@ nvm use 0.10.48
 ```
 ### Before running the build system:
 ```
-sudo npm install -g grunt-cli bower
+npm install -g grunt-cli bower
 ```
 
 ### To build:
