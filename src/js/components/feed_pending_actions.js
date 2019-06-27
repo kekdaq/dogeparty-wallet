@@ -58,12 +58,7 @@ PendingActionViewModel.calcText = function(category, data) {
     }
   } else if(category == 'broadcasts') {
     desc = pending + " broadcast:<br/>Text: " + data['text'] + "<br/>Value:" + data['value'];
-  } else if(category == 'bets') {
-    desc = pending + " <b>" + data['bet_type'] + "</b> bet on feed @ <Ad>"
-      + getLinkForCPData('address', data['feed_address'], getAddressLabel(data['feed_address'])) + "</Ad><br/>"
-      + "Wager: <Am>"
-      + numberWithCommas(normalizeQuantity(data['wager_quantity'])) + "</Am> <As>XCP</As>, Counterwager: <Am>"
-      + numberWithCommas(normalizeQuantity(data['counterwager_quantity'])) + "</Am> <As>XCP</As>";  
+
   } else if(category == 'dividends') {
     
     var divUnitDivisible;
@@ -83,11 +78,6 @@ PendingActionViewModel.calcText = function(category, data) {
     desc = pending + " callback for <Am>" + (data['fraction'] * 100).toFixed(4) + "%</Am> outstanding on token <As>" + data['asset'] + "</As>";
   } else if(category == 'btcpays') {
     desc = pending + " BTC Payment from <Ad>" + getAddressLabel(data['source']) + "</Ad>";
-  } else if(category == 'rps') {
-    desc  = pending + "  RPS game with <Ad>" + getAddressLabel(data['source']) + "</Ad>: ";
-    desc += " <Am>"+numberWithCommas(normalizeQuantity(data['wager'])) + '</Am> <As>XCP</As>';
-  } else if(category == 'rpsresolves') {
-    desc  = pending + " RPS resolution with <Ad>" + getAddressLabel(data['source']) + "</Ad>";
   } else if(category == 'order_matches') {
 
     if (WALLET.getAddressObj(data['tx1_address']) && data['forward_asset'] == BTC && data['_status'] == 'pending') {      
@@ -112,7 +102,7 @@ function PendingActionFeedViewModel() {
   self.entries = ko.observableArray([]); //pending actions beyond pending BTCpays
   self.lastUpdated = ko.observable(new Date());
   self.ALLOWED_CATEGORIES = [
-    'sends', 'orders', 'issuances', 'broadcasts', 'bets', 'dividends', 'burns', 'cancels', 'callbacks', 'btcpays', 'rps', 'rpsresolves', 'order_matches'
+    'sends', 'orders', 'issuances', 'broadcasts', 'dividends', 'burns', 'cancels', 'callbacks', 'btcpays', 'rps', 'rpsresolves', 'order_matches'
     //^ pending actions are only allowed for these categories
   ];
   
@@ -325,14 +315,6 @@ PendingActionFeedViewModel.modifyBalancePendingFlag = function(category, data, f
       updateUnconfirmedBalance(data['source'], data['give_asset'], data['give_quantity'] * -1);
     }   
 
-  } else if (category == 'bets') {
-
-    updateUnconfirmedBalance(data['source'], XCP, data['wager_quantity'] * -1);
-    
-  } else if (category == 'rps') {
-
-    updateUnconfirmedBalance(data['source'], XCP, data['wager'] * -1);
-    
   }
 }
 

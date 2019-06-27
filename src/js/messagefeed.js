@@ -399,8 +399,8 @@ function MessageFeed() {
     if(message['block_index'])
       WALLET.networkBlockHeight(message['block_index']);
       
-    //filter out non insert messages for now, EXCEPT for order, bet and rps_matches messages (so that we get notified when the remaining qty, etc decrease)
-    if(message['_command'] != 'insert' && (category != "orders" && category != "bets" && category != "rps_matches"))
+    //filter out non insert messages for now, EXCEPT for order and rps_matches messages (so that we get notified when the remaining qty, etc decrease)
+    if(message['_command'] != 'insert' && (category != "orders" && category != "rps_matches"))
       return;
 
     //If we received an action originating from an address in our wallet that was marked invalid by the network, let the user know
@@ -423,8 +423,8 @@ function MessageFeed() {
     if(_.startsWith(message['_status'], 'invalid'))
       return; //ignore message
     if(message['_status'] == 'expired' && category != "rps_matches") {
-      //ignore expired orders and bets, but we have order_expirations and bet_expiration inserts that we DO look at
-      assert(category == "orders" || category == "bets", "Got an 'expired' message for a category of: " + category);
+      //ignore expired orders, but we have order_expirations inserts that we DO look at
+      assert(category == "orders", "Got an 'expired' message for a category of: " + category);
       return;
     }
     
@@ -464,7 +464,6 @@ function MessageFeed() {
         // NOTE: this does not apply as a pending action because in order for us to issue a cancellation,
         // it would need to be confirmed on the blockchain in the first place
         self.removeOrder(message['offer_hash']);
-        //TODO: If for a bet, do nothing for now.
       }
 
     } else if(category == "callbacks") {
@@ -555,15 +554,7 @@ function MessageFeed() {
       //Would happen if the user didn't make a BTC payment in time
       WAITING_BTCPAY_FEED.remove(message['order_match_id']);
       //^ just in case we had a BTC payment required for this order match when it expired
-    } else if(category == "bets") {
-      //TODO
-    } else if(category == "bet_matches") {
-      //TODO
-    } else if(category == "bet_expirations") {
-      //TODO
-    } else if(category == "bet_match_expirations") {
-      //TODO
-    } else if(category == "rps") {
+     } else if(category == "rps") {
       
     } else if(category == "rps_matches") {
 

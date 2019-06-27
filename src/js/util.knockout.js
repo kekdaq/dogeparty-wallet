@@ -157,6 +157,8 @@ ko.validation.rules['isValidUrl'] = {
     message: 'This field must be a valid url'
 };
 
+
+/*
 ko.validation.rules['isValidUrlOrValidBitcoinAdressOrJsonBet'] = {
     validator: function (val, self) {
       if (!val) return false;
@@ -173,6 +175,7 @@ ko.validation.rules['isValidUrlOrValidBitcoinAdressOrJsonBet'] = {
     },
     message: 'This field must be a valid url or a valid ' + BTC_NAME + ' address'
 };
+*/
 
 ko.validation.registerExtenders();
 
