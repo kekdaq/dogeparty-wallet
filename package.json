@@ -1,12 +1,13 @@
 {
-  "name": "counterwallet",
-  "description": "Counterwallet",
-  "author": "Counterparty development team",
+  "name": "kekdaq-wallet",
+  "description": "Kekdaq Wallet",
+  "author": "MEME/PEPE Team, Counterparty development team",
   "version": "1.4.0",
+  "license": "(CDDL-1.0)",
   "main": "build/index.html",
   "repository": { 
     "type" : "git",
-    "url" : "https://github.com/CounterpartyXCP/counterwallet.git"
+    "url" : "https://github.com/kekdaq/kekdaq-wallet.git"
   },
   "dependencies": {
     "grunt": "0.4.1",
@@ -19,7 +20,7 @@
     "chai": "=1.9.1",
     "grunt-chrome-compile": "0.2.2",
     "grunt-ejs": "^0.2.0",
-    "ejs": "^1.0.0",
+    "ejs": "2.5.5",
     "grunt-contrib-watch": "^0.6.1"
   },
   "scripts": {

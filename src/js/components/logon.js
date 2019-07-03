@@ -292,7 +292,6 @@ function LogonViewModel() {
       WAITING_BTCPAY_FEED.restore();   
     });
     MESSAGE_FEED.restoreOrder();
-    MESSAGE_FEED.resolvePendingRpsMatches();
     
 
     //all done. load the balances screen

@@ -125,7 +125,6 @@
                   <li data-bind="visible: !IS_WATCH_ONLY"><a data-bind="click: createAsset" href="#">Create a Token (Asset)</a></li>                
                   <li data-bind="visible: !IS_WATCH_ONLY && FEATURE_DIVIDEND"><a data-bind="click: payDividend" href="#">Pay Distribution</a></li>
 
-                  <li class="divider"></li><li class="dropdown-header">Betting...</li>  
                   <li data-bind="visible: !IS_WATCH_ONLY"><a data-bind="click: broadcast" href="#">Feed Broadcast</a></li>
                 </ul>
               </div>
@@ -986,16 +985,6 @@
             </div>
           </div></section>
 
-          <section><div class="row">
-            <label class="control-label col col-sm-2">Fee fraction</label>
-            <div class="col col-sm-10">
-                <label class="input"><i class="icon-append fa fa-plus"></i>
-                    <input name="feeFraction" data-bind="value: feeFraction, valueUpdate : 'input'" type="text"/>
-                </label>
-                <div class="note">the fraction of bets on this feed that go to its operator.</div>
-            </div>
-          </div></section>
-
           <section><div class="row">                
             <label class="control-label col col-sm-2">Broadcast Date</label>
             <div class="col col-sm-10">
@@ -1090,6 +1079,9 @@
     </div><!-- /.modal-content -->
   </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
+
+<!--
 <script>
 window.CHAT_FEED.showChat();
 </script>
+-->

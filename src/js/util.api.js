@@ -1,6 +1,6 @@
 
-var TIMEOUT_FAILOVER_API = 16000; // 16 seconds (in ms)
-var TIMEOUT_MULTI_API = 8000; // 8 seconds (in ms)
+var TIMEOUT_FAILOVER_API = 30000; // 30 seconds (in ms)
+var TIMEOUT_MULTI_API = 12000; // 12 seconds (in ms)
 
 //Inlude a .url param in every jqXHR object -- http://stackoverflow.com/a/11980396
 $.ajaxSetup({
@@ -229,8 +229,8 @@ function _getDestTypeFromMethod(method) {
       'get_owned_assets', 'get_asset_history', 'get_asset_extended_info', 'get_transaction_stats', 'get_wallet_stats', 'get_asset_pair_market_info',
       'get_market_price_summary', 'get_market_price_history', 'get_market_info', 'get_market_info_leaderboard', 'get_market_cap_history',
       'get_order_book_simple', 'get_order_book_buysell', 'get_trade_history',
-      'record_btc_open_order', 'cancel_btc_open_order', 'get_bets', 'get_user_bets', 'get_feed', 'get_feeds_by_source',
-      'parse_base64_feed', 'get_open_rps_count', 'get_user_rps', 
+      'record_btc_open_order', 'cancel_btc_open_order', 'get_feed', 'get_feeds_by_source',
+      'parse_base64_feed',
       'get_users_pairs', 'get_market_orders', 'get_market_trades', 'get_markets_list', 'get_market_details',
       'get_pubkey_for_address', 'create_armory_utx', 'convert_armory_signedtx_to_raw_hex', 'create_support_case'].indexOf(method) >= 0) {
     destType = "counterblockd";

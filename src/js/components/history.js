@@ -198,32 +198,13 @@ function TransactionHistoryItemViewModel(data) {
       }
     } else if(self.RAW_TX_TYPE == 'broadcasts') {
       desc = "Text: " + self.DATA['text'] + "<br/>Value: " + self.DATA['value'];
-    } else if(self.RAW_TX_TYPE == 'bets') {
-      desc = BET_TYPES[self.DATA['bet_type']] + " bet on feed @ <Ad>"
-        + getLinkForCPData('address', self.DATA['feed_address'], getAddressLabel(self.DATA['feed_address'])) + "</Ad><br/>"
-        + "Odds: <b>" + reduce(self.DATA['wager_quantity'], self.DATA['counterwager_quantity']).join('/') + "</b>, Wager: <Am>"
-        + smartFormat(normalizeQuantity(self.DATA['wager_quantity'])) + "</Am> <As>" + XCP + "</As>, Counterwager: <Am>"
-        + smartFormat(normalizeQuantity(self.DATA['counterwager_quantity'])) + "</Am> <As>" + XCP + "</As>";  
-    } else if(self.RAW_TX_TYPE == 'bet_matches') {
-      desc = "For feed @ <Ad>" 
-        + getLinkForCPData('address', self.DATA['feed_address'], getAddressLabel(self.DATA['feed_address']))
-        + "</Ad>, <Ad>" + getAddressLabel(self.DATA['tx0_address']) + "</Ad> bet <Am>"
-        + smartFormat(normalizeQuantity(self.DATA['forward_quantity'])) + "</Am> <As>" + XCP + "</As> and <Ad>"
-        + getAddressLabel(self.DATA['tx1_address']) + "</Ad> bet <Am>"
-        + smartFormat(normalizeQuantity(self.DATA['backward_quantity'])) + "</Am> <As>" + XCP + "</As>";
     } else if(self.RAW_TX_TYPE == 'dividends') {
       desc = "Paid <Am>" + smartFormat(normalizeQuantity(self.DATA['quantity_per_unit'])) + "</Am> <As>"+ self.DATA['dividend_asset']
         + "</As> per unit of token <As>" + self.DATA['asset'] + "</As>";
-    } else if(self.RAW_TX_TYPE == 'cancels') {
-      desc = "Order/Bet <b>" + data['offer_hash'] + "</b> cancelled.";
     } else if(self.RAW_TX_TYPE == 'callbacks') {
       desc = "<Am>" + (self.DATA['fraction'] * 100).toFixed(4) + "%</Am> outstanding called back for token <As>" + self.DATA['asset'] + "</As>";
-    } else if(self.RAW_TX_TYPE == 'bet_expirations') {
-      desc = "Bet <b>" + self.DATA['bet_index'] + "</b> expired";
     } else if(self.RAW_TX_TYPE == 'order_expirations') {
       desc = "Order <b>" + self.DATA['order_index'] + "</b> expired";
-    } else if(self.RAW_TX_TYPE == 'bet_match_expirations') {
-      desc = "Bet Match <b>" + self.DATA['bet_match_id'] + "</b> expired";
     } else if(self.RAW_TX_TYPE == 'order_match_expirations') {
       desc = "Order Match <b>" + self.DATA['order_match_id'] + "</b> expired";
     } else if(self.RAW_TX_TYPE == 'credits' || self.RAW_TX_TYPE == 'debits') {
@@ -231,20 +212,6 @@ function TransactionHistoryItemViewModel(data) {
         + (self.RAW_TX_TYPE == 'credits' ? ' credited with ' : ' debited for ')
         + smartFormat(normalizeQuantity(self.DATA['quantity'], self.DATA['_divisible']))
         + "</Am> <As>" + self.DATA['asset'] + "</As>";
-    } else if(self.RAW_TX_TYPE == 'rps') {
-      desc = "Rock-Paper-Scissors bet, Wager: <Am>"
-        + smartFormat(normalizeQuantity(self.DATA['wager'])) + "</Am> <As>" + XCP + "</As>";  
-    } else if(self.RAW_TX_TYPE == 'rps_matches') {
-      desc = "Rock-Paper-Scissors bet matched between <Ad>" + getAddressLabel(self.DATA['tx0_address']) + "</Ad> and <Ad>"
-        + getAddressLabel(self.DATA['tx1_address']) + "</Ad>, wagering <Am>"
-        + smartFormat(normalizeQuantity(self.DATA['wager'])) + "</Am> <As>" + XCP + "</As>";
-    } else if(self.RAW_TX_TYPE == 'rpsresolves') {
-      desc = "Rock-Paper-Scissors bet match <b>" + getTxHashLink(self.DATA['rps_match_id']) + "</b> resolved, source: <Ad>"
-        + getAddressLabel(self.DATA['source']) + "</Ad>, winning move is <b>" + self.DATA['move'] + "</b>";
-    } else if(self.RAW_TX_TYPE == 'rps_expirations') {
-      desc = "RPS <b>" + self.DATA['rps_index'] + "</b> expired";
-    } else if(self.RAW_TX_TYPE == 'rps_match_expirations') {
-      desc = "RPS Match <b>" + getTxHashLink(self.DATA['rps_match_id']) + "</b> expired";
     } else {
       desc = "UNKNOWN TRANSACTION TYPE";
     }

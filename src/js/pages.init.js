@@ -128,8 +128,6 @@ function initBalances() {
   if(!isBound("left-panel")) {
     ko.applyBindings({
       FEATURE_EXCHANGE: disabledFeatures.indexOf('exchange') == -1,
-      FEATURE_BETTING: disabledFeatures.indexOf('betting') == -1,
-      FEATURE_RPS: disabledFeatures.indexOf('rps') == -1,
       FEATURE_HISTORY: disabledFeatures.indexOf('history') == -1,
       FEATURE_PORTFOLIO: disabledFeatures.indexOf('portfolio') == -1,
       FEATURE_LEADERBOARD: disabledFeatures.indexOf('leaderboard') == -1,
@@ -358,44 +356,6 @@ function initPortfolio() {
 }
 INIT_FUNC['pages/portfolio.html'] = initPortfolio;
 
-
-function initBetting() {
-  pageSetUp();
-  window.FEED_BROWSER = new FeedBrowserViewModel();
-  ko.applyBindings(FEED_BROWSER, document.getElementById("betting"));
-
-  FEED_BROWSER.init();
-}
-INIT_FUNC['pages/betting.html'] = initBetting;
-
-function initOpenBets() {
-  pageSetUp();
-  window.OPEN_BETS = new OpenBetsViewModel();
-  ko.applyBindings(OPEN_BETS, document.getElementById("openbets"));
-
-  OPEN_BETS.init();
-  
-  $(window).bind("resize", OPEN_BETS.dataTableResponsive);
-  $(window).on('hashchange', function() {
-    $(window).off("resize", OPEN_BETS.dataTableResponsive);
-  });
-}
-INIT_FUNC['pages/openbets.html'] = initOpenBets;
-
-function initMatchedBets() {
-  pageSetUp();
-  window.MATCHED_BETS = new MatchedBetsViewModel();
-  ko.applyBindings(MATCHED_BETS, document.getElementById("matchedbets"));
-
-  MATCHED_BETS.init();
-
-  $(window).bind("resize", MATCHED_BETS.dataTableResponsive);
-  $(window).on('hashchange', function() {
-    $(window).off("resize", MATCHED_BETS.dataTableResponsive);
-  });
-}
-INIT_FUNC['pages/matchedbets.html'] = initMatchedBets;
-
 function initOpenOrders() {
   pageSetUp();
   window.OPEN_ORDERS = new OpenOrdersViewModel();
@@ -414,11 +374,4 @@ function initOrderMatches() {
 }
 INIT_FUNC['pages/ordermatches.html'] = initOrderMatches;
 
-function initRPS() {
-  pageSetUp();
-  window.RPS = new RpsViewModel();
-  ko.applyBindings(RPS, document.getElementById("rps"));
 
-  RPS.init();
-}
-INIT_FUNC['pages/rps.html'] = initRPS;
